@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html >
+<head>
+<style>
+@font-face {
+    font-family: font;
+    src: url("{{ url_for('static',filename='VisbyRoundCF-Bold.otf') }}");
+}
+body{
+  font: normal 15px font;
+  color: white;
+background-image: url("{{ url_for('static',filename='imgml.jpg') }}");
+background-size:cover;
+}
+
+</style>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="prediction">
+        <h1 style="font-family:helvetica; font-size:40px;color:red">CHD Risk Predictor</h1>
+        <form action="{{ url_for('index')}}"method="post">
+<h2>Please Fill The Below Details :</h2>
+    <br>
+    <label for="Sex">You are </label>
+    <select id="Sex" name="Sex" required="required">
+    <option value="0">Female</option>
+    <option value="1">Male</option>
+    </select>
+    <br>
+    <br>
+    <label for="Age">Your Age -</label>
+    <br>
+  <input type="number" id="Age" name="Age" required="required">
+
+  <br>
+  <br>
+      <label for="Smoking">Do You Smoke? -</label>
+      <select id="Smoking" name="Smoking" required="required">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+      </select>
+      <br>
+      <br>
+      <label for="No Of Times Smoked Per Day">No Of Times Smoked Per Day -</label>
+      <br>
+    <input type="number" id="No Of Times Smoked Per Day" name="No Of Times Smoked Per Day" required="required">
+
+    <br>
+    <br>
+    			<label for="BPmedication">Are You Under BP Medication? </label>
+        		<select id="BPmedication" name="BPmedication" required="required">
+          			<option value="0">No</option>
+          			<option value="1">Yes</option>
+        		</select>
+        		<br>
+            <br>
+            			<label for="Stroke">Did You Get A Stroke Before? </label>
+                		<select id="Stroke" name="Stroke" required="required">
+                  			<option value="0">No</option>
+                  			<option value="1">Yes</option>
+                		</select>
+                		<br>
+                    <br>
+                    			<label for="Hypertension">Where You Under Prevalent Hypertension Before? </label>
+                        		<select id="Hypertension" name="Hypertension" required="required">
+                          			<option value="0">No</option>
+                          			<option value="1">Yes</option>
+                        		</select>
+                        		<br>
+                            <br>
+                                  <label for="Diabetes">Do You Have Diabetes? </label>
+                                    <select id="Diabetes" name="Diabetes" required="required">
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                    <br>
+                                    <br>
+                                    <label for="Cholesterol">Total Cholesterol In Your Body -</label>
+                                    <br>
+                                  <input type="number" id="Cholesterol" name="Cholesterol" required="required">
+
+                                  <br>
+                                  <br>
+                                  <label for="SystolicBP">Your Systolic Blood Pressure -</label>
+                                   <br>
+                                <input type="number" id="SystolicBP" name="SystolicBP" required="required">
+                                <br>
+
+                                <br>
+                                <label for="DiastolicBP">Your Diastolic Blood Pressure -</label>
+<br>
+                              <input type="number" id="DiastolicBP" name="DiastolicBP" required="required">
+
+                              <br>
+                              <br>
+                              <label for="BMI">Your BMI Value -</label>
+                              <br>
+                              <input type="number" id="BMI" name="BMI" required="required">
+
+                          <br>
+                          <br>
+                          <label for="HeartRate">Your Heart Rate -</label>
+                          <br>
+                          <input type="number" id="HeartRate" name="HeartRate" required="required">
+
+                      <br>
+                      <br>
+                      <label for="Glucose">Your Glucose Value -</label>
+                      <br>
+                      <input type="number" id="Glucose" name="Glucose" required="required">
+
+                  <br>
+
+<br>
+        	<button type="submit" class=" btn btn-primary btn-block btn-large">Estimate</button>
+        </form>
+       <br>
+       <b style="color:{{colour}};">{{ estimated_output }}</b>
+    </div>
+</body>
+</html>
