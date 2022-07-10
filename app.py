@@ -31,6 +31,6 @@ def index():
             colour = "red"
         return render_template("index.html",estimated_output=estimated_output,colour=colour)
     return render_template("index.html")
-if __name__ = "__main__":
+if __name__ == "__main__":
     app.run()
 
