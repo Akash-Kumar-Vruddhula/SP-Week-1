@@ -1,8 +1,7 @@
 from flask import Flask, url_for,redirect,render_template,request
-import pickle
+import joblib
 
 app = Flask(__name__)
-loaded_model = pickle.load(open("CHDPredictor.pkl", "rb"))
 
 @app.route("/",methods = ["POST", "GET"])
 def index():
@@ -22,7 +21,7 @@ def index():
         thirteen = request.form["HeartRate"]
         fourteen = request.form["Glucose"]
         values = list(map(float,[one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,fourteen]))
-#         loaded_model = pickle.load(open("CHDPredictor.pkl", "rb"))
+        loaded_model = joblib.load("CHDPredictor.pkl")
         estimate = loaded_model.predict([values])
         if estimate==0:
             estimated_output = "You Are Out Of Danger"
